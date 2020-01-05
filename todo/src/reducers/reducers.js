@@ -6,16 +6,18 @@ const reducer = (state, action) => {
         completed: false,
         id: Math.random()
       };
-      return { ...state, tasks: [state.tasks, newTask] };
+      return ({ ...state, tasks: [...state.tasks, newTask] });
   }
 };
 export { reducer };
 
-const initialState = [
-  {
-    item: "Learn about reducers",
-    completed: false,
-    id: 3892987589
-  }
-];
-export {initialState}
+const initialState = {
+  tasks: [
+    {
+      item: "Learn about reducers",
+      completed: false,
+      id: 3892987589
+    }
+  ]
+};
+export { initialState };

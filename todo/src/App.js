@@ -11,15 +11,21 @@ function App() {
   const [taskName, setTaskName] = useState("");
 
   const addAction = { type: "ADD_TASK", payload: taskName };
-  const addTask = event => {
+  const handleSubmit = event => {
     event.preventDefault();
     dispatch(addAction);
   };
 
+  const handleChange=(event)=>{
+    event.preventDefault();
+    setTaskName(event.target.value)
+    console.log(state)
+  }
+
   return (
     <div className="App">
-      <Form></Form>
-      <List state={state}></List>
+      <Form handleSubmit={handleSubmit} handleChange={handleChange}></Form>
+      <List state={state.tasks}></List>
     </div>
   );
 }
