@@ -4,7 +4,7 @@ const reducer = (state, action) => {
       const newTask = {
         item: action.payload,
         completed: false,
-        id: Date.now()
+        id: Math.random()
       };
       return { ...state, tasks: [state.tasks, newTask] };
   }
