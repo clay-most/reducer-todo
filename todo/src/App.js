@@ -16,16 +16,25 @@ function App() {
     dispatch(addAction);
   };
 
-  const handleChange=(event)=>{
+  const handleChange = event => {
     event.preventDefault();
-    setTaskName(event.target.value)
-    console.log(state)
+    setTaskName(event.target.value);
+    ;
+  };
+
+  const toggler = id => {
+    dispatch({ type: "TOGGLE_TASK", payload: id });
+  };
+  
+  const clear = ()=>{
+    dispatch({ type: "CLEAR" })
   }
 
   return (
     <div className="App">
       <Form handleSubmit={handleSubmit} handleChange={handleChange}></Form>
-      <List state={state.tasks}></List>
+      <button onClick={()=>{clear()}} >Clear</button>
+      <List toggler={toggler} state={state.tasks}></List>
     </div>
   );
 }

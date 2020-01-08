@@ -18,8 +18,18 @@ const reducer = (state, action) => {
           }
         })
       };
+    case "CLEAR":
+      return {
+        ...state,
+        tasks: state.tasks.filter(task => {
+          return !task.completed;
+        })
+      };
+    default:
+      return state;
   }
 };
+
 export { reducer };
 
 const initialState = {

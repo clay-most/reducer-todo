@@ -4,8 +4,8 @@ import Task from "./Task";
 function List(props) {
   return (
     <div>
-      {props.state&&props.state.map(item => {
-        return <Task task={item.item} key={item.id}></Task>;
+      {props.state&&props.state.map(task => {
+        return <Task toggler={props.toggler} task={task} key={task.id}></Task>;
       })}
     </div>
   );
